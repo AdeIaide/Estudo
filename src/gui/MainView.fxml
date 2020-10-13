@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</VBox>
-
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
+   <content>
+      <VBox prefHeight="0.0" prefWidth="485.0">
+         <children>
+            <MenuBar prefHeight="13.0" prefWidth="515.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                    <MenuItem fx:id="menuItemRegistrar" mnemonicParsing="false" onAction="#onMenuItemRegistrarAction" text="Registrar" />
+                        <MenuItem fx:id="menuItemUsuariosRegistrados" mnemonicParsing="false" onAction="#onMenuItemUsuariosRegistradosAction" text="Usuários registrados" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>
