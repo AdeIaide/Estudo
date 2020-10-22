@@ -15,6 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class MainViewController implements Initializable{
 
@@ -22,6 +23,9 @@ public class MainViewController implements Initializable{
 	private MenuItem menuItemRegistrar;
 	@FXML
 	private MenuItem menuItemUsuariosRegistrados;
+	@FXML
+	private MenuItem MenuItemHome;
+
 
 	@FXML
 	public void onMenuItemRegistrarAction() {
@@ -31,6 +35,11 @@ public class MainViewController implements Initializable{
 	@FXML
 	public void onMenuItemUsuariosRegistradosAction() {
 		System.out.println("Usuarios Registrados");
+	}
+
+	@FXML
+	public void onMenuItemHomeAction() {
+		carregarView("/gui/HomeView.fxml");
 	}
 
 	@Override
