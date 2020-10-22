@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="568.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="568.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegistrarViewController">
    <children>
       <AnchorPane prefHeight="317.0" prefWidth="598.0">
          <children>
@@ -28,7 +28,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="98.0" layoutY="76.0" prefHeight="25.0" prefWidth="465.0" />
+            <TextField fx:id="Nome" layoutX="98.0" layoutY="76.0" prefHeight="25.0" prefWidth="465.0" />
             <Label layoutX="14.0" layoutY="101.0" text="Telefone">
                <padding>
                   <Insets top="10.0" />
@@ -37,7 +37,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="98.0" layoutY="113.0" prefHeight="25.0" prefWidth="166.0" />
+            <TextField fx:id="Telefone" layoutX="98.0" layoutY="113.0" prefHeight="25.0" prefWidth="166.0" />
             <Label layoutX="14.0" layoutY="138.0" text="Idade:">
                <padding>
                   <Insets top="10.0" />
@@ -46,7 +46,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="98.0" layoutY="150.0" prefHeight="25.0" prefWidth="53.0" />
+            <TextField fx:id="idade" layoutX="98.0" layoutY="150.0" prefHeight="25.0" prefWidth="53.0" />
             <Label layoutX="14.0" layoutY="175.0" text="Endereço:">
                <padding>
                   <Insets top="10.0" />
@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="98.0" layoutY="188.0" prefHeight="25.0" prefWidth="465.0" />
+            <TextField fx:id="endereco" layoutX="98.0" layoutY="188.0" prefHeight="25.0" prefWidth="465.0" />
             <Label layoutX="14.0" layoutY="213.0" text="Email:">
                <padding>
                   <Insets top="10.0" />
@@ -64,8 +64,8 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="99.0" layoutY="225.0" prefHeight="25.0" prefWidth="465.0" />
-            <Button layoutX="487.0" layoutY="278.0" mnemonicParsing="false" text="REGISTRAR" />
+            <TextField fx:id="email" layoutX="99.0" layoutY="225.0" prefHeight="25.0" prefWidth="465.0" />
+            <Button fx:id="registrar" layoutX="487.0" layoutY="278.0" mnemonicParsing="false" onAction="#onButtonRegistrarAction" text="REGISTRAR" />
          </children>
       </AnchorPane>
    </children>
