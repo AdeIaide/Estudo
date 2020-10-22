@@ -23,6 +23,8 @@ public class Main extends Application {
 			mainScene = new Scene(scrollPane);
 			primaryStage.setScene(mainScene);
 			primaryStage.setTitle("CADASTRO");
+			primaryStage.setHeight(400);
+			primaryStage.setWidth(600);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
