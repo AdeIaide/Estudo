@@ -1,9 +1,12 @@
 package gui;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import application.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,8 +15,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.entities.Cliente;
+import model.services.UsuariosRegistradosService;
 
 public class UsuariosRegistradosViewController implements Initializable{
+
+	private UsuariosRegistradosService servico;
 
 	@FXML
 	private Button buttonExcluir;
@@ -31,9 +37,15 @@ public class UsuariosRegistradosViewController implements Initializable{
 	@FXML
 	private TableColumn<Cliente, String> tableColumnEmail;
 
+	private ObservableList<Cliente> obsList;
+
 	@FXML
 	public void onButtonExcluirAction() {
 		System.out.println("Excluido padrin");
+	}
+
+	public void setDepartmentService(UsuariosRegistradosService servico) {
+		this.servico = servico;
 	}
 
 	@Override
@@ -53,4 +65,15 @@ public class UsuariosRegistradosViewController implements Initializable{
 		tableViewCliente.prefHeightProperty().bind(stage.heightProperty());
 		tableViewCliente.prefWidthProperty().bind(stage.widthProperty());
 	}
+
+	public void updateTableView() {
+		if(servico == null) {
+			throw new IllegalStateException("Servico esta nulo");
+		}
+		List<Cliente> list = servico.findAll();
+		obsList = FXCollections.observableArrayList(list);
+		tableViewCliente.setItems(obsList);
+
+	}
+
 }
