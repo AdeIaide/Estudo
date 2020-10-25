@@ -1,11 +1,14 @@
 package gui;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import model.entities.Cliente;
 
-public class RegistrarViewController {
+public class RegistrarViewController implements Initializable{
 
 	@FXML
 	private TextField textFieldNome;
@@ -52,5 +55,9 @@ public class RegistrarViewController {
 	@FXML
 	public String onTextFieldEmailAction() {
 		return textFieldEmail.getText();
+	}
+
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
 	}
 }

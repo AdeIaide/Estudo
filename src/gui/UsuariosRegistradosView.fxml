@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegistrarUsuariosViewController">
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UsuariosRegistradosViewController">
    <children>
       <Label prefHeight="28.0" prefWidth="190.0" text="Usuários Registrados">
          <font>
@@ -20,13 +20,13 @@
           <Button fx:id="buttonExcluir" mnemonicParsing="false" onAction="#onButtonExcluirAction" prefWidth="67.0" text="Excluir" />
         </items>
       </ToolBar>
-      <TableView prefHeight="231.0" prefWidth="390.0">
+      <TableView fx:id="tableViewCliente" prefHeight="231.0" prefWidth="390.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Nome" />
-          <TableColumn prefWidth="75.0" text="Telefone" />
-            <TableColumn prefWidth="75.0" text="Idade" />
-            <TableColumn prefWidth="75.0" text="Endereco" />
-            <TableColumn prefWidth="75.0" text="Email" />
+          <TableColumn fx:id="tableColumnNome" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="tableColumnTelefone" prefWidth="75.0" text="Telefone" />
+            <TableColumn fx:id="tableColumnIdade" prefWidth="75.0" text="Idade" />
+            <TableColumn fx:id="tableColumnEndereco" prefWidth="75.0" text="Endereco" />
+            <TableColumn fx:id="tableColumnEmail" prefWidth="75.0" text="Email" />
         </columns>
       </TableView>
    </children>

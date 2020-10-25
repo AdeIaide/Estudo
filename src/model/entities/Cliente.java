@@ -13,6 +13,14 @@ public class Cliente {
 		this.email = email;
 	}
 
+	public Cliente(String nome, Integer telefone, Integer idade, String endereco, String email) {
+		this.nome = nome;
+		this.telefone = telefone;
+		this.idade = idade;
+		this.endereco = endereco;
+		this.email = email;
+	}
+
 	public String getNome() {
 		return nome;
 	}
