@@ -22,6 +22,7 @@
       </ToolBar>
       <TableView fx:id="tableViewCliente" prefHeight="231.0" prefWidth="390.0">
         <columns>
+        <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="tableColumnNome" prefWidth="75.0" text="Nome" />
           <TableColumn fx:id="tableColumnTelefone" prefWidth="75.0" text="Telefone" />
             <TableColumn fx:id="tableColumnIdade" prefWidth="75.0" text="Idade" />

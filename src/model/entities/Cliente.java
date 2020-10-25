@@ -2,6 +2,7 @@ package model.entities;
 
 public class Cliente {
 
+	private Integer id;
 	private String nome;
 	private Integer telefone;
 	private Integer idade;
@@ -13,7 +14,8 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public Cliente(String nome, Integer telefone, Integer idade, String endereco, String email) {
+	public Cliente(Integer id, String nome, Integer telefone, Integer idade, String endereco, String email) {
+		this.id = id;
 		this.nome = nome;
 		this.telefone = telefone;
 		this.idade = idade;
@@ -51,6 +53,14 @@ public class Cliente {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getEmail() {

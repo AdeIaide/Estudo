@@ -25,6 +25,8 @@ public class UsuariosRegistradosViewController implements Initializable{
 	private Button buttonExcluir;
 
 	@FXML
+	private TableColumn<Cliente, Integer> tableColumnId;
+	@FXML
 	private TableView<Cliente> tableViewCliente;
 	@FXML
 	private TableColumn<Cliente, String> tableColumnNome;
@@ -36,6 +38,7 @@ public class UsuariosRegistradosViewController implements Initializable{
 	private TableColumn<Cliente, String> tableColumnEndereco;
 	@FXML
 	private TableColumn<Cliente, String> tableColumnEmail;
+
 
 	private ObservableList<Cliente> obsList;
 
@@ -56,6 +59,7 @@ public class UsuariosRegistradosViewController implements Initializable{
 
 	//PADRÃO DO JAVAFX PARA INICIAR O COMPORTAMENTO DAS COLUNAS
 	private void initializaNodes() {
+		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		tableColumnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
 		tableColumnIdade.setCellValueFactory(new PropertyValueFactory<>("idade"));
