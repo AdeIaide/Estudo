@@ -3,25 +3,25 @@ package gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import model.entities.Cliente;
 
 public class RegistrarViewController {
 
 	@FXML
-	private TextField nome;
+	private TextField textFieldNome;
 	@FXML
-	private TextField telefone;
+	private TextField textFieldTelefone;
 	@FXML
-	private TextField idade;
+	private TextField textFieldIdade;
 	@FXML
-	private TextField endereco;
+	private TextField textFieldEndereco;
 	@FXML
-	private TextField email;
+	private TextField textFieldEmail;
 	@FXML
-	private Button registrar;
+	private Button ButtonRegistrar;
 
 	@FXML
 	public void onButtonRegistrarAction() {
-		System.out.println("Registrado padrin");
 		System.out.println(onTextFieldNomeAction());
 		System.out.println(onTextFieldTelefoneAction());
 		System.out.println(onTextFieldIdadeAction());
@@ -31,26 +31,26 @@ public class RegistrarViewController {
 
 	@FXML
 	public String onTextFieldNomeAction() {
-		return nome.getText();
+		return textFieldNome.getText();
 	}
 
 	@FXML
 	public String onTextFieldTelefoneAction() {
-		return telefone.getText();
+		return textFieldTelefone.getText();
 	}
 
 	@FXML
 	public String onTextFieldIdadeAction() {
-		return idade.getText();
+		return textFieldIdade.getText();
 	}
 
 	@FXML
 	public String onTextFieldEnderecoAction() {
-		return endereco.getText();
+		return textFieldEndereco.getText();
 	}
 
 	@FXML
 	public String onTextFieldEmailAction() {
-		return email.getText();
+		return textFieldEmail.getText();
 	}
 }

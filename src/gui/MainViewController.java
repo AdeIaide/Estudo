@@ -34,7 +34,7 @@ public class MainViewController implements Initializable{
 
 	@FXML
 	public void onMenuItemUsuariosRegistradosAction() {
-		System.out.println("Usuarios Registrados");
+		carregarView("/gui/UsuariosRegistradosView.fxml");
 	}
 
 	@FXML
