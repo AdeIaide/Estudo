@@ -16,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import model.services.RegistrarService;
 import model.services.UsuariosRegistradosService;
 
 public class MainViewController implements Initializable{
@@ -30,7 +31,9 @@ public class MainViewController implements Initializable{
 
 	@FXML
 	public void onMenuItemRegistrarAction() {
-		carregarView("/gui/RegistrarView.fxml", x -> {});
+		carregarView("/gui/RegistrarView.fxml", (RegistrarViewController controlador) -> {
+			controlador.setServico(new RegistrarService());
+		});
 	}
 
 	@FXML

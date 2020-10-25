@@ -42,6 +42,7 @@ public class UsuariosRegistradosViewController implements Initializable{
 	@FXML
 	public void onButtonExcluirAction() {
 		System.out.println("Excluido padrin");
+		updateTableView();
 	}
 
 	public void setServico(UsuariosRegistradosService servico) {

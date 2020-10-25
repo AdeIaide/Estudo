@@ -7,9 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import model.entities.Servico;
+import model.services.RegistrarService;
 
 public class RegistrarViewController implements Initializable{
+
+	private RegistrarService servico;
 
 	@FXML
 	private TextField textFieldNome;
@@ -58,7 +60,13 @@ public class RegistrarViewController implements Initializable{
 		return textFieldEmail.getText();
 	}
 
+	public void setServico(RegistrarService servico) {
+		this.servico = servico;
+	}
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 	}
+
+
 }
