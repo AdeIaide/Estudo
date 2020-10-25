@@ -3,6 +3,7 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 import application.Main;
 import gui.util.Alerts;
@@ -15,7 +16,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import model.services.UsuariosRegistradosService;
 
 public class MainViewController implements Initializable{
@@ -30,17 +30,20 @@ public class MainViewController implements Initializable{
 
 	@FXML
 	public void onMenuItemRegistrarAction() {
-		carregarView("/gui/RegistrarView.fxml");
+		carregarView("/gui/RegistrarView.fxml", x -> {});
 	}
 
 	@FXML
 	public void onMenuItemUsuariosRegistradosAction() {
-		carregarView2("/gui/UsuariosRegistradosView.fxml");
+		carregarView("/gui/UsuariosRegistradosView.fxml", (UsuariosRegistradosViewController controlador) -> {
+			controlador.setServico(new UsuariosRegistradosService());
+			controlador.updateTableView();
+		});
 	}
 
 	@FXML
 	public void onMenuItemHomeAction() {
-		carregarView("/gui/HomeView.fxml");
+		carregarView("/gui/HomeView.fxml", x -> {});
 	}
 
 	@Override
@@ -49,7 +52,7 @@ public class MainViewController implements Initializable{
 	}
 
 	//MÉTODO PARA PEGAR A SCENE DA VIEW PRINCIPAL
-	private void carregarView(String nomeDaView) {
+	private  synchronized <T> void carregarView(String nomeDaView, Consumer<T> initializingAction) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(nomeDaView));
 			VBox newVBox = loader.load();
@@ -66,35 +69,13 @@ public class MainViewController implements Initializable{
 			mainVBox.getChildren().add(mainMenu);
 			mainVBox.getChildren().addAll(newVBox.getChildren());
 
-		}catch(IOException e) {
-			Alerts.showAlert("IO Excepiton", "Erro ao carregar a view", e.getMessage(), AlertType.ERROR);
-		}
-	}
-
-	private void carregarView2(String nomeDaView) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(nomeDaView));
-			VBox newVBox = loader.load();
-
-			Scene mainScene = Main.getMainScene();
-			/*GET ROOT SERVE PARA PEGAR O PRIMEIRO ELEMENTO DA VIEW (QUE É UM SCROLLPANE)
-			 *GET CONTENT PEGA O CONTEUDO (VBOX) DO PRIMEIRO ELEMENTO(SCROLL PANE)
-			 *ENTÃO SÓ É FEITO O CASTING PARA VBOX PARA MANIPULÁ-LO E ADICIONAR O CONTEUDO DA OUTRA VIEW
-			*/
-			VBox mainVBox = (VBox) ((ScrollPane)mainScene.getRoot()).getContent();
-			//PEGA O PRIMEIRO FILHO DO VBOX DA JANELA PRINCIPAL
-			Node mainMenu = mainVBox.getChildren().get(0);
-			mainVBox.getChildren().clear();
-			mainVBox.getChildren().add(mainMenu);
-			mainVBox.getChildren().addAll(newVBox.getChildren());
-
-			UsuariosRegistradosViewController controller = loader.getController();
-			controller.setDepartmentService(new UsuariosRegistradosService());
-			controller.updateTableView();
+			T controlador = loader.getController();
+			initializingAction.accept(controlador);
 
 		}catch(IOException e) {
 			Alerts.showAlert("IO Excepiton", "Erro ao carregar a view", e.getMessage(), AlertType.ERROR);
 		}
 	}
+
 
 }

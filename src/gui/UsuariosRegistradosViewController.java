@@ -44,7 +44,7 @@ public class UsuariosRegistradosViewController implements Initializable{
 		System.out.println("Excluido padrin");
 	}
 
-	public void setDepartmentService(UsuariosRegistradosService servico) {
+	public void setServico(UsuariosRegistradosService servico) {
 		this.servico = servico;
 	}
 
@@ -75,5 +75,6 @@ public class UsuariosRegistradosViewController implements Initializable{
 		tableViewCliente.setItems(obsList);
 
 	}
+
 
 }
